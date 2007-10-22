@@ -1,5 +1,5 @@
 %define name latex-mk
-%define version 1.8
+%define version 1.9.1
 %define release %mkrel 1
 
 Summary: Utility simplifying latex document managment
@@ -20,7 +20,7 @@ Buildrequires: ImageMagick, latex2html, ghostscript, transfig
 
 Buildarch: noarch
 %description
-LaTeX-Mk is a collection of makefile fragments and shell scripts 
+LaTeX-Mk is a collection of makefile fragments and shell scripts
 for simplifying the management of small to large sized LaTeX documents.
 
 %prep
