@@ -10,6 +10,7 @@ Source0: %{name}-%{version}.tar.bz2
 License: BSD
 Group: Publishing
 Url: http://latex-mk.sourceforge.net/
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires: make
 Requires: tetex-latex, tetex, tetex-dvipdfm, tetex-dvips, gv, hevea
 Requires: ImageMagick, latex2html, ghostscript, transfig, tetex-xdvi
