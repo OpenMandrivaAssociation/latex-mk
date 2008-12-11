@@ -13,10 +13,10 @@ Url: http://latex-mk.sourceforge.net/
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires: make
 Requires: tetex-latex, tetex, tetex-dvipdfm, tetex-dvips, gv, hevea
-Requires: ImageMagick, latex2html, ghostscript, transfig, tetex-xdvi
+Requires: imagemagick, latex2html, ghostscript, transfig, tetex-xdvi
 
 BuildRequires: tetex-latex, tetex, tetex-dvipdfm, tetex-dvips, gv, hevea
-Buildrequires: ImageMagick, latex2html, ghostscript, transfig
+Buildrequires: imagemagick, latex2html, ghostscript, transfig
 
 Buildarch: noarch
 %description
