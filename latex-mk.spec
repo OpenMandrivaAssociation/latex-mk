@@ -1,6 +1,6 @@
 %define name latex-mk
 %define version 1.9.1
-%define release %mkrel 4
+%define release %mkrel 5
 
 Summary: Utility simplifying latex document managment
 Name: %{name}
