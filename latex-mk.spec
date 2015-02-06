@@ -1,11 +1,11 @@
 %define name latex-mk
 %define version 2.1
-%define release 1
+%define release 2
 
 Summary: Utility simplifying latex document managment
 Name: latex-mk
 Version: 2.1
-Release: 1
+Release: 2
 Source0: http://switch.dl.sourceforge.net/project/latex-mk/latex-mk/latex-mk-%version/latex-mk-%version.tar.gz
 License: BSD
 Group: Publishing
