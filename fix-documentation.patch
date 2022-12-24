@@ -1,0 +1,23 @@
+Subject: Fix error when creating the documentation
+Author: Christoph Biedl <debian.axhn@manchmal.in-ulm.de>
+Bug-Debian: https://bugs.debian.org/790534
+
+--- a/doc/latex-mk.texi
++++ b/doc/latex-mk.texi
+@@ -3,7 +3,6 @@
+ @c %**start of header
+ @setfilename latex-mk.info
+ @settitle LaTeX-Mk
+-@setcontentsaftertitlepage
+ @c %**end of header
+ 
+ @include version.texi
+@@ -133,7 +132,7 @@
+ @end menu
+ 
+ @page
+-@c @contents
++@contents
+ 
+ @node Introduction, Targets, Top, Top
+ @chapter Introduction

@@ -6,6 +6,8 @@ License:	BSD
 Group:		Publishing
 Url:		https://latex-mk.sourceforge.net/
 Source0:	https://downloads.sourceforge.net/latex-mk/latex-mk/%name-%version/%name-%version.tar.gz
+# (debian)
+Patch5:		fix-documentation.patch
 
 BuildRequires:	texlive-latex
 BuildRequires:	texlive
