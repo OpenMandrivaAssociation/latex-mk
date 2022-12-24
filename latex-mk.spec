@@ -1,38 +1,43 @@
-%define name latex-mk
-%define version 2.1
-%define release 2
+Summary:	Utility simplifying latex document managment
+Name:		latex-mk
+Version:	2.1
+Release:	3
+License:	BSD
+Group:		Publishing
+Url:		https://latex-mk.sourceforge.net/
+Source0:	https://downloads.sourceforge.net/latex-mk/latex-mk/%name-%version/%name-%version.tar.gz
 
-Summary: Utility simplifying latex document managment
-Name: latex-mk
-Version: 2.1
-Release: 2
-Source0: http://switch.dl.sourceforge.net/project/latex-mk/latex-mk/latex-mk-%version/latex-mk-%version.tar.gz
-License: BSD
-Group: Publishing
-Url: http://latex-mk.sourceforge.net/
-Requires: make
-Requires: texlive-latex, texlive, texlive-dvipdfm, texlive-dvips, gv, hevea
-Requires: imagemagick, latex2html, ghostscript, transfig, texlive-xdvi, texinfo
+BuildRequires:	texlive-latex
+BuildRequires:	texlive
+BuildRequires:	texlive-dvipdfm
+BuildRequires:	texlive-dvips
+#BuildRequires:	gv
+#BuildRequires:	hevea
+Buildrequires:	imagemagick
+BuildRequires:	latex2html
+BuildRequires:	ghostscript
+BuildRequires:	transfig
+BuildRequires:	texinfo
 
-BuildRequires: texlive-latex, texlive, texlive-dvipdfm, texlive-dvips, gv, hevea
-Buildrequires: imagemagick, latex2html, ghostscript, transfig, texinfo
+Requires:	make
+Requires:	texlive
+Requires:	texlive-latex
+Requires:	texlive-dvipdfm
+Requires:	texlive-dvips
+Requires:	gv
+Requires:	hevea
+Requires:	imagemagick
+Requires:	latex2html
+Requires:	ghostscript
+Requires:	transfig
+Requires:	texlive-xdvi
+Requires:	texinfo
 
-Buildarch: noarch
+Buildarch:	noarch
+
 %description
 LaTeX-Mk is a collection of makefile fragments and shell scripts
 for simplifying the management of small to large sized LaTeX documents.
-
-%prep
-%setup -q
-
-%build
-# configure macro doesn't work ( Buildarch: noarch )
-./configure --program-prefix= --prefix=/usr --exec-prefix=/usr --bindir=%{_bindir} --sysconfdir=/etc --datadir=%{_datadir} --infodir=%{_infodir} --libdir=%{_libdir}
-%make
-
-%install
-rm -rf $RPM_BUILD_ROOT
-%makeinstall
 
 %files
 %defattr(-,root,root)
@@ -42,42 +47,26 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/latex-mk/*
 %{_infodir}/%{name}*
 
+#--------------------------------------------------------------------
 
+%prep
+%autosetup -p1
 
-%changelog
-* Fri Dec 10 2010 Oden Eriksson <oeriksson@mandriva.com> 1.9.1-5mdv2011.0
-+ Revision: 620049
-- the mass rebuild of 2010.0 packages
+%build
+# configure macro doesn't work ( Buildarch: noarch )
+rm -f doc/texinfo.tex
+%configure \
+	--program-prefix= \
+	--prefix=%{_prefix} \
+	--exec-prefix=%{_prefix} \
+	--bindir=%{_bindir} \
+	--sysconfdir=%{_sysconfdir} \
+	--datadir=%{_datadir} \
+	--infodir=%{_infodir} \
+	--libdir=%{_libdir}
 
-* Fri Sep 04 2009 Thierry Vignaud <tv@mandriva.org> 1.9.1-4mdv2010.0
-+ Revision: 429701
-- rebuild
+%make_build
 
-  + Oden Eriksson <oeriksson@mandriva.com>
-    - lowercase ImageMagick
+%install
+%make_install
 
-* Fri Jul 25 2008 Thierry Vignaud <tv@mandriva.org> 1.9.1-3mdv2009.0
-+ Revision: 248318
-- rebuild
-- kill re-definition of %%buildroot on Pixel's request
-
-  + Olivier Blin <oblin@mandriva.com>
-    - restore BuildRoot
-
-* Mon Oct 22 2007 Jérôme Soyer <saispo@mandriva.org> 1.9.1-1mdv2008.1
-+ Revision: 101084
-- New release 1.9.1
-- import latex-mk
-
-
-* Thu Aug 31 2006 Couriousous <couriousous@mandriva.org> 1.8-1mdv2007.0
-- 1.8
-
-* Sat Apr 15 2006 Couriousous <couriousous@mandriva.orv> 1.6-1mdk
-- 1.6
-
-* Fri Mar 17 2006 Couriousous <couriousous@mandriva.org> 1.5-1mdk
-- 1.5
-
-* Sun Dec 19 2004 Couriousous <couriousous@mandrake.org> 1.3-1mdk
-- First Mandrakelinux release
