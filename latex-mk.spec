@@ -1,4 +1,4 @@
-# (mandian) doc compilation fails tue to a bug in texinfo
+# (mandian) doc compilation fails due to a bug in texinfo
 %bcond_with	doc
 
 Summary:	Utility simplifying latex document managment
