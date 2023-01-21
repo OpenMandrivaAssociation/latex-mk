@@ -1,0 +1,11 @@
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -50,7 +50,7 @@
+ 
+ EXTRA_DIST=	${PSFILES} TODO
+ 
+-SUBDIRS=	doc example testsuite
++SUBDIRS=	example testsuite
+ 
+ SUFFIXES=	.mk.in .mk .gmk
+ 

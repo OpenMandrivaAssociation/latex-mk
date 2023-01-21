@@ -1,3 +1,6 @@
+# (mandian) doc compilation fails tue to a bug in texinfo
+%bcond_with	doc
+
 Summary:	Utility simplifying latex document managment
 Name:		latex-mk
 Version:	2.1
@@ -6,6 +9,9 @@ License:	BSD
 Group:		Publishing
 Url:		https://latex-mk.sourceforge.net/
 Source0:	https://downloads.sourceforge.net/latex-mk/latex-mk/%name-%version/%name-%version.tar.gz
+%if !%{with doc}
+Patch0:		latex-mk-exclude_doc.patch
+%endif
 # (debian)
 Patch5:		fix-documentation.patch
 
@@ -42,12 +48,13 @@ LaTeX-Mk is a collection of makefile fragments and shell scripts
 for simplifying the management of small to large sized LaTeX documents.
 
 %files
-%defattr(-,root,root)
 %{_bindir}/ieee-copyout
 %{_bindir}/latex-mk
 %dir %{_datadir}/latex-mk
 %{_datadir}/latex-mk/*
+%if %{with doc}
 %{_infodir}/%{name}*
+%endif
 
 #--------------------------------------------------------------------
 
@@ -56,7 +63,10 @@ for simplifying the management of small to large sized LaTeX documents.
 
 %build
 # configure macro doesn't work ( Buildarch: noarch )
-rm -f doc/texinfo.tex
+%if %{with doc}
+#rm -f doc/texinfo.tex
+%endif
+
 %configure \
 	--program-prefix= \
 	--prefix=%{_prefix} \
@@ -66,7 +76,6 @@ rm -f doc/texinfo.tex
 	--datadir=%{_datadir} \
 	--infodir=%{_infodir} \
 	--libdir=%{_libdir}
-
 %make_build
 
 %install
