@@ -32,8 +32,8 @@ Requires:	texlive
 Requires:	texlive-latex
 Requires:	texlive-dvipdfm
 Requires:	texlive-dvips
-Requires:	gv
-Requires:	hevea
+#Requires:	gv
+#Requires:	hevea
 Requires:	imagemagick
 Requires:	latex2html
 Requires:	ghostscript
